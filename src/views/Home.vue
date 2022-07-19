@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <AppButton class="btn" size="lg" color="dark-accent">
+                <AppButton class="btn" size="lg" color="dark-accent" @click="$router.push(`/create-resume/personal-information/${resume_id}`)">
                     Get Started
                 </AppButton>
             </div>
@@ -32,6 +32,10 @@
 
 <script setup lang="ts">
 import AppButton from '../components/AppButton.vue';
+import { v4 as uuidv4 } from 'uuid';
+import { ref } from 'vue';
+
+const resume_id = uuidv4()
 
 </script>
 

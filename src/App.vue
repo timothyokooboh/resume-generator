@@ -17,5 +17,7 @@ import TheNavBar from './components/TheNavBar.vue';
     margin-block-start: 9rem;
     background-color: #F1F8FE;
     height: 100vh;
+    padding-inline: 2rem;
+    padding-block: 2rem;
   }
 </style>

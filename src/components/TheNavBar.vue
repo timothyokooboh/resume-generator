@@ -2,8 +2,9 @@
     <header class="header">
         <nav class="nav">
             <h1>Resume Generator</h1>
-            <section>
-                <AppButton color="dark-accent" outlined>
+            <section class="nav__items">
+                <ResumeStages v-if="$route.name === 'ResumeBuilder'" />
+                <AppButton color="dark-accent" outlined class="app-btn">
                     Sign In
                 </AppButton>
             </section>
@@ -12,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-
+    import ResumeStages from '../components/ResumeStages.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -31,5 +32,14 @@
         justify-content: space-between;
         align-items: center;
         padding-inline: 2rem;
+
+        &__items {
+            display: flex;
+            align-items: center;
+        }
+
+        .app-btn {
+            margin-inline-start: 2rem;
+        }
     }
 </style>

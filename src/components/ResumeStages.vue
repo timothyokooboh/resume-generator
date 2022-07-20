@@ -1,13 +1,17 @@
 <template>
-    <div class="stages">
-        <div v-for="(stage, idx) in stages" :key="idx" class="stage" :class="{ active: isActive(stage)}">
-            <span class="sn">{{ idx + 1 }}</span>
-            <span class="text-uppercase">{{ stage.title }}</span>
+    <div>
+        <div class="lg">
+            <ResumeStagesLG :stages="stages" :is-active="isActive" />
+        </div>
+        <div class="sm">
+            <ResumeStagesSM :stages="stages" :is-active="isActive" />
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"> 
+    import ResumeStagesLG from "./ResumeStagesLG.vue";
+    import ResumeStagesSM from "./ResumeStagesSM.vue";
     import { useRoute } from "vue-router";
     const route = useRoute();
 
@@ -32,6 +36,10 @@
         {
             title: 'skills',
             value: 'skills'
+        },
+        {
+            title: 'anything else',
+            value: 'anything-else'
         }
 
     ]
@@ -76,6 +84,20 @@
         &:not(:last-child)::after {
             content: '';
             background-color: var(--color-primary);
+        }
+    }
+
+    .lg {
+        display: none;
+        @media (min-width: 1150px) {
+            display: block;
+        }
+    }
+
+    .sm {
+        display: block;
+        @media (min-width: 1150px) {
+            display: none;
         }
     }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <nav class="nav">
-            <h1>Resume Generator</h1>
+            <h1 @click="$router.push({name: 'Home'})" class="cursor-pointer">Resume Builder</h1>
             <section class="nav__items">
                 <ResumeStages v-if="$route.name === 'ResumeBuilder'" />
                 <AppButton color="dark-accent" outlined class="app-btn">
@@ -36,6 +36,10 @@
         &__items {
             display: flex;
             align-items: center;
+        }
+
+        h1 {
+            color: var(--color-primary)
         }
 
         .app-btn {

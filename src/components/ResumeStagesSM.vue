@@ -1,5 +1,5 @@
 <template>
-    <div v-if="currentStage">
+    <div v-if="currentStage" class="test">
         <div class="text-center stage-title text-uppercase">{{ currentStage.title }}</div>
         <div class="stages-icon-container">
             <div 
@@ -51,5 +51,21 @@
 
     .stage-icon.active {
         border: 1px solid var(--color-primary)
+    }
+
+    .test {
+        @media (max-width: 550px) {
+            display: flex;
+            flex-direction: column-reverse;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+
+            & > div {
+                margin: 7px 0;
+            }
+        }
     }
 </style>

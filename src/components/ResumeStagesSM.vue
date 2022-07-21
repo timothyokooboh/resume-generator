@@ -58,10 +58,13 @@
             display: flex;
             flex-direction: column-reverse;
             position: fixed;
-            bottom: 10px;
+            bottom: 0;
+            padding-block: 1rem;
             left: 50%;
+            width: 100%;
             transform: translateX(-50%);
             z-index: 9999;
+            background-color: #F1F8FE;
 
             & > div {
                 margin: 7px 0;

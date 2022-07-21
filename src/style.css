@@ -40,3 +40,20 @@ body {
 .w-100 {
   width: 100%;
 }
+
+label {
+  color: #454545;
+  font-size: 1.4rem;
+}
+
+.input {
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  border-radius: 3px;
+  border: 1px solid #C4D8FB;
+  outline: none;
+}
+
+input:focus {
+  outline: 3px solid #C4D8FB !important;
+}

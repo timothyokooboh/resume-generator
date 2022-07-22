@@ -133,11 +133,6 @@
     }
 
     .personal-info {
-        max-width: 90rem;
-        width: 90%;
-        margin: 3rem auto;
-        padding-block-end: 5rem;
-
         h1 {
             color: var(--color-primary);
         }

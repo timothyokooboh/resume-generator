@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <nav class="nav">
-            <h1 @click="$router.push({name: 'Home'})" class="cursor-pointer">Resume Builder</h1>
+            <h1 @click="$router.push('/')" class="cursor-pointer">Resume Builder</h1>
             <section class="nav__items">
                 <ResumeStages v-if="$route.name === 'ResumeBuilder'" class="resume-builder" />
                 <AppButton color="dark-accent" outlined class="app-btn">

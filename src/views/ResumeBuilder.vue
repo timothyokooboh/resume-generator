@@ -8,6 +8,7 @@
 <script setup lang="ts">
     import PersonalInformation from '../components/resume-forms/PersonalInformation.vue';
     import Education from '../components/resume-forms/Education.vue';
+    import ProfessionalSummary from '../components/resume-forms/ProfessionalSummary.vue';
     import ResumeStagesNavigationButtons from '../components/ResumeStagesNavigationButtons.vue';
     import { watchEffect } from 'vue';
     import { useRoute } from 'vue-router'
@@ -17,6 +18,7 @@
 
     const strategies = {
         'personal-information': PersonalInformation,
+        'summary': ProfessionalSummary,
         'education': Education
     }
 

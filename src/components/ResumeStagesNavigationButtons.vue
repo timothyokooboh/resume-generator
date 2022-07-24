@@ -1,7 +1,7 @@
 <template>
     <div class="navigation-btns">
         <template v-if="prevStage">
-            <AppButton outlined @click="$router.push(`/create-resume/${prevStage.value}/${$route.params.resume_id}`)">
+            <AppButton class="bg-primary" outlined @click="$router.push(`/create-resume/${prevStage.value}/${$route.params.resume_id}`)">
                 BACK
             </AppButton>
         </template>
@@ -31,5 +31,14 @@ import AppButton from './AppButton.vue';
         justify-content: space-between;
         align-items: center;
         margin-block: 5rem;
+
+        @media (max-width: 350px) {
+            display: block;
+
+            & > * {
+                width: 100%;
+                margin-block: 1.5rem;
+            }
+        }
     }
 </style>

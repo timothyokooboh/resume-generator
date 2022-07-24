@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="lg">
-            <ResumeStagesLG :stages="stages" :is-active="isActive" />
+            <ResumeStagesLG :is-active="isActive" :is-previous="isPrevious" />
         </div>
         <div class="sm">
-            <ResumeStagesSM :stages="stages" :is-active="isActive" />
+            <ResumeStagesSM :is-active="isActive" />
         </div>
     </div>
 </template>
@@ -13,36 +13,15 @@
     import ResumeStagesLG from "./ResumeStagesLG.vue";
     import ResumeStagesSM from "./ResumeStagesSM.vue";
     import { useRoute } from "vue-router";
+    import { ResumeStage } from "../types";
+    import { useResumeStages } from "../store/ResumeStages";
+
+    const resumeStagesStore = useResumeStages()
     const route = useRoute();
 
-    const isActive = (stage: {title: string, value: string}) => stage.value === route.params.stage;
-    const stages = [
-        {
-            title: 'personal information',
-            value: 'personal-information'
-        },
-        {
-            title: 'summary',
-            value: 'summary'
-        },
-        {
-            title: 'work history',
-            value: 'work-history'
-        },
-        {
-            title: 'education',
-            value: 'education'
-        },
-        {
-            title: 'skills',
-            value: 'skills'
-        },
-        {
-            title: 'anything else',
-            value: 'anything-else'
-        }
+    const isActive = (stage: ResumeStage) => stage.value === route.params.stage;
 
-    ]
+    const isPrevious = (stage: ResumeStage) => resumeStagesStore.currentStage ? stage.step < resumeStagesStore.currentStage.step : false
 </script>
 
 <style lang="scss" scoped>

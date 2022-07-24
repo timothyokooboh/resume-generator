@@ -1,4 +1,5 @@
 export interface ResumeStage {
     title: string
-    value: string
+    value: string,
+    step: number
 }

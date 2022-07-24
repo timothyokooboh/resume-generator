@@ -94,6 +94,32 @@
                     <ErrorMessage name='email' class='error' />
                 </div>
             </section>
+
+            <section class="social-links">
+                <div 
+                    class='form-control' 
+                    v-for="(link, idx) in state.socialLinks"
+                    :key="link.id"
+                >
+                    <div class="test">
+                        <label 
+                        contenteditable 
+                        class="content-editable" 
+                        @input="setTitleOfLink($event.target.innerText, idx)"
+                    >
+                        {{ link.title }}
+                    </label>
+                    </div>
+                    <input
+                        type='url' 
+                        class='input' 
+                        placeholder="Enter URL e.g. https://yourlink.com"
+                        v-model='link.url'
+                    />
+                    <!--<ErrorMessage name='phone_number' class='error' />-->
+                </div>
+            </section>
+            <p class="add-social-link" @click="addSocialLink">Add social links</p>
         </Form>
     </section>
 </template>
@@ -101,18 +127,42 @@
 <script setup lang="ts">
     import { Form, Field, ErrorMessage } from "vee-validate"
     import * as yup from 'yup'
-    import { reactive } from "vue";
+    import { reactive, ref, Ref } from "vue";
 
-    const state = reactive({
+    interface PersonalInformation {
+        first_name: string
+        surname: string
+        city: string
+        country: string
+        postal_code: string
+        phone_number: string
+        email: string
+        socialLinks: { id: number, title: string, url: string }[]
+    }
+
+    const state: PersonalInformation = reactive({
         first_name: '',
         surname: '',
         city: '',
         country: '',
         postal_code: '',
         phone_number: '',
-        email: ''
+        email: '',
+        socialLinks: [] 
     })
 
+    const setTitleOfLink = (val: string, idx: number) => {
+        state.socialLinks[idx].title = val
+    }
+
+    const addSocialLink = () => {
+        state.socialLinks.push({
+            id: state.socialLinks.length + 1,
+            title: 'Enter Title',
+            url: ''
+        })
+    }
+ 
     const schema = yup.object({
         first_name: yup.string().required().label('first name'),
         surname: yup.string().required().label('surname'),
@@ -162,6 +212,13 @@
             column-gap: 2rem;
             @include breakPoint
         }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 2rem;
+            @include breakPoint
+        }
         .form-control {
             margin-top: 2rem;
             display: flex;
@@ -177,5 +234,18 @@
             }
         }
 
+        .content-editable {
+            outline: none;
+            margin-right: 1rem;
+        }
     }
+
+    .add-social-link {
+        color: dodgerblue;
+        font-size: 1.4rem;
+        text-decoration: underline;
+        cursor: pointer;
+        padding-block-start: 1rem;
+    }
+
 </style>

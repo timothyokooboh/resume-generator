@@ -3,7 +3,7 @@
         <div class="text-center stage-title text-uppercase">{{ currentStage.title }}</div>
         <div class="stages-icon-container">
             <div 
-                v-for="stage in stages" 
+                v-for="stage in resumeStagesStore.stages" 
                 :key="stage.value" class="stage-icon" 
                 :class="{ active: stage === currentStage }"
             >
@@ -16,14 +16,16 @@
     import { computed } from "vue"
     import { useRoute } from "vue-router";
     import { ResumeStage } from "../types"
+    import { useResumeStages } from "../store/ResumeStages"
+
+    const resumeStagesStore = useResumeStages()
 
     const props = defineProps<{
-        stages: ResumeStage[],
         isActive: Function
     }>()
 
     const route = useRoute()
-    const currentStage = computed(() => props.stages.find(stage => stage.value === route.params.stage))
+    const currentStage = computed(() => resumeStagesStore.stages.find(stage => stage.value === route.params.stage))
 </script>
 
 <style lang="scss" scoped>

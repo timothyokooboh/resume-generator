@@ -54,6 +54,6 @@ label {
   outline: none;
 }
 
-input:focus {
+.input:focus {
   outline: 3px solid #C4D8FB !important;
 }

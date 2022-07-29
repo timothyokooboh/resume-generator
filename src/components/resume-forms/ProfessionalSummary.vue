@@ -6,7 +6,7 @@
             :config="editorConfig"
             v-model="professional_summary"
         />
-        
+        <ResumeStagesNavButtons />
     </section>
 </template>
 
@@ -16,11 +16,8 @@ import * as yup from 'yup'
 import { ref } from 'vue'
 import { component as ckeditor } from '@ckeditor/ckeditor5-vue';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
-
-const editorConfig = {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ],
-        height: '500px'
-    }
+import editorConfig from "../../editorConfig"
+import ResumeStagesNavButtons from "../ResumeStagesNavButtons.vue"
 
 const professional_summary = ref('')
 
@@ -32,6 +29,8 @@ const schema = yup.object({
 <style lang="scss" scoped>
     h1 {
         color: var(--color-primary);
+        font-size: 2.4rem;
+        font-weight: 400;
     }
 </style>
 

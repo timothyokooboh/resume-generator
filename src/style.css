@@ -11,6 +11,7 @@ html {
   --color-tertiary: #F3FFB6;
   --color-accent: #D38B5D;
   --color-dark-accent: #99621E;
+  --color-danger: red;
   font-family: 'Roboto', sans-serif;
 }
 

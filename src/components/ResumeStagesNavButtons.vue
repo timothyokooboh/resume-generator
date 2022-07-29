@@ -1,16 +1,17 @@
 <template>
     <div class="navigation-btns">
-        <template v-if="prevStage">
-            <AppButton class="bg-primary" outlined @click="$router.push(`/create-resume/${prevStage.value}/${$route.params.resume_id}`)">
-                BACK
-            </AppButton>
-        </template>
-        <template v-if="nextStage && Object.keys(nextStage).length > 0">
-            <AppButton @click="$router.push(`/create-resume/${nextStage.value}/${$route.params.resume_id}`)">
-                <span class="text-uppercase">Next: {{ nextStage.title }}</span>
-            </AppButton>
-        </template>
-        
+        <slot>
+            <template v-if="prevStage">
+                <AppButton class="bg-primary" outlined @click="$router.push(`/create-resume/${prevStage.value}/${$route.params.resume_id}`)">
+                    BACK
+                </AppButton>
+            </template>
+            <template v-if="nextStage && Object.keys(nextStage).length > 0">
+                <AppButton @click="$router.push(`/create-resume/${nextStage.value}/${$route.params.resume_id}`)">
+                    <span class="text-uppercase">Next: {{ nextStage.title }}</span>
+                </AppButton>
+            </template>
+        </slot>
     </div>
 </template>
 

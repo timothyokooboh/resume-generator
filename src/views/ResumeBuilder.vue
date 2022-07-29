@@ -1,7 +1,6 @@
 <template>
     <div class="layout">
         <component :is="component"></component>
-        <ResumeStagesNavigationButtons />
     </div>
 </template>
 
@@ -9,7 +8,8 @@
     import PersonalInformation from '../components/resume-forms/PersonalInformation.vue';
     import Education from '../components/resume-forms/Education.vue';
     import ProfessionalSummary from '../components/resume-forms/ProfessionalSummary.vue';
-    import ResumeStagesNavigationButtons from '../components/ResumeStagesNavigationButtons.vue';
+    import WorkHistory from '../components/resume-forms/WorkHistory.vue';
+    import ResumeStagesNavigationButtons from '../components/ResumeStagesNavButtons.vue';
     import { watchEffect } from 'vue';
     import { useRoute } from 'vue-router'
 
@@ -19,7 +19,8 @@
     const strategies = {
         'personal-information': PersonalInformation,
         'summary': ProfessionalSummary,
-        'education': Education
+        'work-history': WorkHistory,
+        'education': Education,
     }
 
     const route = useRoute();

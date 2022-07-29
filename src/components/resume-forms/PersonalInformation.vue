@@ -121,6 +121,7 @@
             </section>
             <p class="add-social-link" @click="addSocialLink">Add social links</p>
         </Form>
+        <ResumeStagesNavButtons />
     </section>
 </template>
 
@@ -128,6 +129,7 @@
     import { Form, Field, ErrorMessage } from "vee-validate"
     import * as yup from 'yup'
     import { reactive, ref, Ref } from "vue";
+    import ResumeStagesNavButtons from "../ResumeStagesNavButtons.vue"
 
     interface PersonalInformation {
         first_name: string
@@ -185,6 +187,8 @@
     .personal-info {
         h1 {
             color: var(--color-primary);
+            font-size: 2.4rem;
+            font-weight: 400;
         }
     }
 
@@ -229,8 +233,9 @@
             }
 
             .error {
-                color: var(--color-dark-accent);
+                color: var(--color-danger);
                 padding-block-start: .5rem;
+                font-size: 1.3rem;
             }
         }
 

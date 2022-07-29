@@ -15,7 +15,7 @@ import TheNavBar from './components/TheNavBar.vue';
 <style lang="scss" scoped>
   .main {
     margin-block-start: 7rem;
-    background-color:#F1F8FE;
+    //background-color:#F1F8FE;
     min-height: 100vh;
     padding-inline: 2rem;
     padding-block-start: 1rem;
